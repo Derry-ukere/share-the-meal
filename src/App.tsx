@@ -1,11 +1,22 @@
 import React from 'react';
-import {BrowserRouter, Route } from 'react-router-dom';
-import Demo from './containers/demo/Hello';
+import {BrowserRouter, Route, Switch } from 'react-router-dom';
+import {AboutPage} from './pages/AboutPage';
+import {DonatePage} from './pages/DonatePage';
+import {FaqPage} from './pages/FaqPage';
+import {HomePage} from './pages/HomePage';
+import {Main} from './pages/Main';
 
 function App() {     
   return ( 
     <BrowserRouter>
-      <Route path = '/test' component = {Demo}/>
+      <Main >
+        <Switch>
+          <Route path = '/' exact component = {HomePage}/>
+          <Route path = '/about' exact component = {AboutPage}/>
+          <Route path = '/faq' exact component = {FaqPage}/>
+          <Route path = '/donate' exact component = {DonatePage}/>
+        </Switch>
+      </Main>
     </BrowserRouter>
   );
 }    
